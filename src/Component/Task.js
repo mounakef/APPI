@@ -1,18 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {deleteTask ,editTask} from '../Redux/action'
+import {deleteTask,isDone } from '../Redux/action'
+import EditTask from './edit';
 const Task = ({element}) => {
 
     const  dispatch = useDispatch();
-   
+   const [checked,setChecked]=useState(false)
     return (
         <div style={{display:'flex',justifyContent:'space-around'}}>
 
         <h4>{element.description}</h4> 
-        <div><button onClick={()=>{dispatch(editTask(element.id,element.description))}}>Edit</button>
+        <div>
+            <EditTask task ={element} />
         <button onClick={()=>dispatch(deleteTask(element.id))}>x</button>
-        <input type="checkbox" id="scales" name="scales"
-       /></div>
+        <input type="checkbox" id="scales" name="scales"  defaultChecked={checked} onChange={()=>{setChecked(!checked);dispatch(isDone(element.id))}}
+       />
+       <h1>{element.isDone?"done":"not done"}</h1></div>
            
            
         </div>

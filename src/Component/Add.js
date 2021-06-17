@@ -4,15 +4,21 @@ import {addTask} from'../Redux/action'
 
 const Add = () => {
     const [taskNew, setTaskNew] = useState({id:Math.random(),
-description:"",
+description:"" ,
 isDone:false})
 const dispatch = useDispatch();   
+const handelAdd=()=>{
+    dispatch (addTask(taskNew) );
+    setTaskNew({id:Math.random(),
+        description:"" ,
+        isDone:false});
+}
 
      
     return (
         <div>
-         <input type="text"  onChange={e=>setTaskNew({id:Math.random(), description :e.target.value,isDone:false})}/>
-         <button onClick={()=>{dispatch(addTask(taskNew))}}>AddTask</button>   
+         <input type="text"  value={taskNew.description} onChange={e=>setTaskNew({id:Math.random(), description :e.target.value,isDone:false})}/>
+         <button onClick={handelAdd} >AddTask</button>   
         </div>
     )
     }
