@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {addTask} from'../Redux/action'
+import '../App.css'
 
 const Add = () => {
     const [taskNew, setTaskNew] = useState({id:Math.random(),

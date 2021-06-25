@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {deleteTask,isDone } from '../Redux/action'
 import EditTask from './edit';
+import '../App.css'
 const Task = ({element}) => {
 
     const  dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Task = ({element}) => {
         <input type="checkbox" id="scales" name="scales"  defaultChecked={checked} onChange={()=>{setChecked(!checked);dispatch(isDone(element.id))}}
        />
        <h1>{element.isDone?"done":"not done"}</h1></div>
+
            
            
         </div>

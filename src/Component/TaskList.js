@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useSelector } from "react-redux";
 import Task from './Task'
-
+import '../App.css'
 const TaskList = () => {
     const toDos = useSelector((state) => state.toDo)
     const [safwen, setSafwen] = useState("all")
